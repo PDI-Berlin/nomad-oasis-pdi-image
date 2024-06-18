@@ -1,0 +1,11 @@
+services:
+  worker:
+    volumes:
+      - ./plugins/nomad-measurements/src/nomad_measurements:/app/plugins/nomad_measurements
+#     - ./plugins/nomad-measurements/src/nomad_measurements/xrd:/app/plugins/xrd
+      - ./plugins/nomad-material-processing/src/nomad_material_processing:/app/plugins/nomad_material_processing
+  app:
+    volumes:
+      - ./plugins/nomad-measurements/src/nomad_measurements:/app/plugins/nomad_measurements
+#     - ./plugins/nomad-measurements/src/nomad_measurements/xrd:/app/plugins/xrd
+      - ./plugins/nomad-material-processing/src/nomad_material_processing:/app/plugins/nomad_material_processing

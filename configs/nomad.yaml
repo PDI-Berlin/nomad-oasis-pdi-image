@@ -1,0 +1,37 @@
+services:
+  api_host: 'intra8.pdi-berlin.de'
+  api_base_path: '/nomad-oasis'
+
+oasis:
+  is_oasis: true
+  uses_central_user_management: true
+
+north:
+  jupyterhub_crypt_key: 'e076bf5548e54aa1cf50ffc63c3a8518853a2132a70e6fa9b57d6b2e75cbdbe8'
+
+meta:
+  deployment: 'PDI Oasis'
+  deployment_url: 'https://intra8.pdi-berlin.de/api'
+  maintainer_email: 'yildirim@pdi-berlin.de'
+
+mongo:
+    db_name: nomad_oasis_v1
+
+elastic:
+    entries_index: nomad_oasis_entries_v1
+    materials_index: nomad_oasis_materials_v1
+
+plugins:
+  include:
+    - 'schemas/nomad_measurements'
+    - 'schemas/nomad_material_processing'
+    - 'parsers/nomad_measurements/xrd'
+  options:
+    schemas/nomad_measurements:
+      python_package: nomad_measurements
+    schemas/nomad_material_processing:
+      python_package: nomad_material_processing
+    parsers/nomad_measurements/xrd:
+      python_package: nomad_measurements.xrd.parser
+#   parsers/XRD:
+#     python_package: xrd
